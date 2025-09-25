@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EURUDA CONSEIL - Actualités et Conseils</title>
+    <description>Restez informé des dernières actualités et conseils en gestion d'entreprise par EURUDA CONSEIL, votre partenaire de confiance à Cotonou, Bénin.</description>
+    <link>https://eurudaconseil.com</link>
+    <language>fr-fr</language>
+    <atom:link href="https://eurudaconseil.com/rss.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>contact@eurudaconseil.com (EURUDA CONSEIL)</managingEditor>
+    <webMaster>contact@eurudaconseil.com (EURUDA CONSEIL)</webMaster>
+    <copyright>Copyright 2024 EURUDA CONSEIL. Tous droits réservés.</copyright>
+    <category>Business Management Consulting</category>
+    <ttl>1440</ttl>
+    
+    <!-- Sample RSS items - replace with actual blog posts/news -->
+    <item>
+      <title>5 Stratégies pour Optimiser la Performance de votre Entreprise</title>
+      <description>Découvrez nos conseils d'experts pour améliorer les performances de votre entreprise et stimuler la croissance.</description>
+      <link>https://eurudaconseil.com/blog/strategies-performance-entreprise</link>
+      <guid>https://eurudaconseil.com/blog/strategies-performance-entreprise</guid>
+      <pubDate>Wed, 25 Sep 2024 10:00:00 GMT</pubDate>
+      <category>Stratégie d'Entreprise</category>
+    </item>
+    
+    <item>
+      <title>L'Importance de la Transformation Digitale pour les PME au Bénin</title>
+      <description>Comment les petites et moyennes entreprises béninoises peuvent tirer parti de la transformation digitale.</description>
+      <link>https://eurudaconseil.com/blog/transformation-digitale-pme-benin</link>
+      <guid>https://eurudaconseil.com/blog/transformation-digitale-pme-benin</guid>
+      <pubDate>Mon, 23 Sep 2024 09:30:00 GMT</pubDate>
+      <category>Transformation Digitale</category>
+    </item>
+    
+    <item>
+      <title>Gestion Financière : Les Clés du Succès</title>
+      <description>Maîtrisez les fondamentaux de la gestion financière pour assurer la pérennité de votre entreprise.</description>
+      <link>https://eurudaconseil.com/blog/gestion-financiere-cles-succes</link>
+      <guid>https://eurudaconseil.com/blog/gestion-financiere-cles-succes</guid>
+      <pubDate>Fri, 20 Sep 2024 14:00:00 GMT</pubDate>
+      <category>Conseil Financier</category>
+    </item>
+  </channel>
+</rss>
