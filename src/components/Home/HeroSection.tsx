@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Users, TrendingUp, Award } from "lucide-react";
+import { ArrowRight, Users, TrendingUp, Award, Star, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-consulting.jpg";
 
@@ -11,41 +11,27 @@ interface HeroSectionProps {
 const HeroSection = ({ language }: HeroSectionProps) => {
   const content = {
     fr: {
-      headline: "Transformez votre entreprise avec",
-      company: "EURUDA CONSEIL",
-      subheadline: "Votre partenaire de confiance en conseil en gestion et stratégie d'entreprise",
-      description: "Nous accompagnons les dirigeants d'entreprises dans leurs défis stratégiques, financiers et organisationnels pour maximiser leur performance et assurer leur croissance durable.",
+      headline: "Transformez votre entreprise",
+      tagline: "Conseil stratégique de classe mondiale",
+      description: "Maximisez votre performance avec nos experts certifiés",
       ctaPrimary: "Consultation Gratuite",
-      ctaSecondary: "Découvrir nos Services",
-      trustPoints: [
-        { icon: Users, text: "Plus de 150 clients accompagnés" },
-        { icon: TrendingUp, text: "Croissance moyenne de 35%" },
-        { icon: Award, text: "15+ ans d'expérience" }
-      ],
-      benefits: [
-        "Stratégie personnalisée selon vos objectifs",
-        "Accompagnement sur-mesure par nos experts",
-        "Résultats mesurables et durables",
-        "Confidentialité et professionnalisme garantis"
+      ctaPhone: "+229 97 84 84 19",
+      stats: [
+        { value: "150+", label: "Clients" },
+        { value: "35%", label: "Croissance Moy." },
+        { value: "15+", label: "Années d'Exp." }
       ]
     },
     en: {
-      headline: "Transform your business with",
-      company: "EURUDA CONSEIL",
-      subheadline: "Your trusted partner in business management and strategy consulting",
-      description: "We support business leaders in their strategic, financial and organizational challenges to maximize their performance and ensure sustainable growth.",
+      headline: "Transform Your Business",
+      tagline: "World-class strategic consulting",
+      description: "Maximize your performance with our certified experts",
       ctaPrimary: "Free Consultation",
-      ctaSecondary: "Discover our Services",
-      trustPoints: [
-        { icon: Users, text: "150+ clients supported" },
-        { icon: TrendingUp, text: "35% average growth" },
-        { icon: Award, text: "15+ years experience" }
-      ],
-      benefits: [
-        "Personalized strategy according to your goals",
-        "Tailor-made support by our experts",
-        "Measurable and sustainable results",
-        "Guaranteed confidentiality and professionalism"
+      ctaPhone: "+229 97 84 84 19",
+      stats: [
+        { value: "150+", label: "Clients" },
+        { value: "35%", label: "Avg. Growth" },
+        { value: "15+", label: "Years Exp." }
       ]
     }
   };
@@ -53,40 +39,43 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   const t = content[language];
 
   return (
-    <section className="relative min-h-screen flex items-center bg-background">
-      
+    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-muted/30 to-background overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-muted/50 to-background"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary))_0%,transparent_50%)] opacity-5"></div>
       
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Content */}
           <div className="space-y-8 animate-slide-up">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-foreground">{t.headline}</span>
-                <br />
+            {/* Main Headline */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                <Star className="h-4 w-4 text-gold mr-2" />
+                <span className="text-sm font-medium text-primary">{t.tagline}</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="gradient-hero bg-clip-text text-transparent">
-                  {t.company}
+                  {t.headline}
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground font-medium">
-                {t.subheadline}
-              </p>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-xl text-muted-foreground font-medium leading-relaxed">
                 {t.description}
               </p>
             </div>
 
-            {/* Benefits List */}
-            <div className="space-y-3">
-              {t.benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <CheckCircle className="h-5 w-5 text-success mt-1 flex-shrink-0" />
-                  <span className="text-muted-foreground">{benefit}</span>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 py-6">
+              {t.stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground font-medium">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -95,7 +84,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="gradient-hero hover:shadow-glow transition-all text-lg px-8 py-6"
+                className="gradient-hero hover:shadow-glow transition-all text-lg px-8 py-6 font-semibold"
                 asChild
               >
                 <Link to="/contact" className="flex items-center space-x-2">
@@ -107,48 +96,58 @@ const HeroSection = ({ language }: HeroSectionProps) => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="text-lg px-8 py-6 hover:bg-secondary"
+                className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5 hover:border-primary/50 transition-all"
                 asChild
               >
-                <Link to="/services">
-                  {t.ctaSecondary}
-                </Link>
+                <a href={`tel:${t.ctaPhone}`} className="flex items-center space-x-2">
+                  <Phone className="h-5 w-5" />
+                  <span>{t.ctaPhone}</span>
+                </a>
               </Button>
-            </div>
-
-            {/* Trust Points */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8">
-              {t.trustPoints.map((point, index) => (
-                <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-card border">
-                  <point.icon className="h-6 w-6 text-gold" />
-                  <span className="text-sm font-medium text-foreground">{point.text}</span>
-                </div>
-              ))}
             </div>
           </div>
 
           {/* Hero Image */}
           <div className="relative">
             <div className="relative z-10">
-              <Card className="overflow-hidden shadow-premium animate-float">
+              {/* Main Image Card */}
+              <Card className="overflow-hidden shadow-premium animate-float bg-gradient-to-br from-white to-muted/50">
                 <img 
                   src={heroImage} 
-                  alt="EURUDA CONSEIL - Professional Business Consulting"
+                  alt="EURUDA CONSEIL - Professional Business Consulting Team"
                   className="w-full h-auto object-cover"
+                  loading="eager"
                 />
               </Card>
+              
+              {/* Floating Trust Badge */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-premium p-6 animate-slide-up delay-300">
+                <div className="flex items-center space-x-4">
+                  <div className="flex -space-x-2">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">C</div>
+                    <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center text-white font-bold text-sm">E</div>
+                    <div className="w-10 h-10 rounded-full bg-success flex items-center justify-center text-white font-bold text-sm">+</div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-foreground">
+                      {language === "fr" ? "Clients Satisfaits" : "Happy Clients"}
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      {[1,2,3,4,5].map((star) => (
+                        <Star key={star} className="h-3 w-3 fill-gold text-gold" />
+                      ))}
+                      <span className="text-xs text-muted-foreground ml-1">5.0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             
             {/* Decorative Elements */}
             <div className="absolute -top-6 -right-6 w-24 h-24 gradient-accent rounded-full opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 gradient-hero rounded-full opacity-10 animate-pulse delay-1000"></div>
+            <div className="absolute -bottom-12 -right-12 w-32 h-32 gradient-hero rounded-full opacity-10 animate-pulse delay-1000"></div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-1 h-8 bg-gold rounded-full opacity-60"></div>
       </div>
     </section>
   );

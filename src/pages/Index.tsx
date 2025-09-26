@@ -1,109 +1,159 @@
 import HeroSection from "@/components/Home/HeroSection";
+import TrustSection from "@/components/Home/TrustSection";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ArrowRight, FileText, Users, DollarSign, Briefcase } from "lucide-react";
+import { Link } from "react-router-dom";
+import businessPlansImg from "@/assets/business-plans-service.png";
+import teamDevImg from "@/assets/team-development-service.png";
+import financingImg from "@/assets/financing-service.png";
+import projectMgmtImg from "@/assets/project-management-service.png";
 
 interface IndexProps {
   language: "fr" | "en";
 }
 
 const Index = ({ language }: IndexProps) => {
+  const content = {
+    fr: {
+      servicesTitle: "Nos Services d'Excellence",
+      servicesSubtitle: "Solutions complètes pour transformer votre entreprise et atteindre vos objectifs stratégiques",
+      viewAllServices: "Voir tous nos services",
+      services: [
+        {
+          title: "Plans d'Affaires",
+          description: "Obtenez un financement avec nos plans d'affaires professionnels et convaincants",
+          image: businessPlansImg,
+          icon: FileText,
+          features: ["Étude de marché", "Projections financières", "Stratégie marketing"]
+        },
+        {
+          title: "Développement d'Équipe", 
+          description: "Maximisez la performance de vos équipes avec nos formations sur mesure",
+          image: teamDevImg,
+          icon: Users,
+          features: ["Leadership", "Communication", "Productivité"]
+        },
+        {
+          title: "Conseil Financier",
+          description: "Plans de financement et remboursement adaptés à vos besoins spécifiques",
+          image: financingImg,
+          icon: DollarSign,
+          features: ["Structuration financière", "Négociation", "Suivi"]
+        },
+        {
+          title: "Maîtrise d'Ouvrage",
+          description: "Expertise projet pour garantir le succès de vos initiatives stratégiques",
+          image: projectMgmtImg,
+          icon: Briefcase,
+          features: ["Planification", "Exécution", "Contrôle qualité"]
+        }
+      ]
+    },
+    en: {
+      servicesTitle: "Our Excellence Services",
+      servicesSubtitle: "Complete solutions to transform your business and achieve your strategic objectives",
+      viewAllServices: "View all services",
+      services: [
+        {
+          title: "Business Plans",
+          description: "Get financing with our professional and compelling business plans",
+          image: businessPlansImg,
+          icon: FileText,
+          features: ["Market research", "Financial projections", "Marketing strategy"]
+        },
+        {
+          title: "Team Development",
+          description: "Maximize your team's performance with our customized training programs",
+          image: teamDevImg,
+          icon: Users,
+          features: ["Leadership", "Communication", "Productivity"]
+        },
+        {
+          title: "Financial Advisory",
+          description: "Financing and repayment plans tailored to your specific needs",
+          image: financingImg,
+          icon: DollarSign,
+          features: ["Financial structuring", "Negotiation", "Monitoring"]
+        },
+        {
+          title: "Project Management",
+          description: "Project expertise to guarantee the success of your strategic initiatives",
+          image: projectMgmtImg,
+          icon: Briefcase,
+          features: ["Planning", "Execution", "Quality control"]
+        }
+      ]
+    }
+  };
+
+  const t = content[language];
+
   return (
     <div className="min-h-screen">
       <HeroSection language={language} />
+      <TrustSection language={language} />
       
-      {/* Services Preview Section */}
-      <section className="py-20 bg-muted/50">
+      {/* Enhanced Services Section */}
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-              {language === "fr" ? "Nos Services d'Excellence" : "Our Excellence Services"}
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-hero bg-clip-text text-transparent">
+              {t.servicesTitle}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              {language === "fr" 
-                ? "Découvrez notre gamme complète de services de conseil pour transformer votre entreprise et atteindre vos objectifs stratégiques."
-                : "Discover our complete range of consulting services to transform your business and achieve your strategic objectives."
-              }
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              {t.servicesSubtitle}
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="group bg-background rounded-lg p-6 shadow-sm hover:shadow-elegant transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2 text-primary">
-                {language === "fr" ? "Plans d'Affaires" : "Business Plans"}
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                {language === "fr" 
-                  ? "Obtenez un financement avec nos plans d'affaires professionnels"
-                  : "Get financing with our professional business plans"
-                }
-              </p>
-            </div>
-
-            <div className="group bg-background rounded-lg p-6 shadow-sm hover:shadow-elegant transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
-                <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2 text-accent">
-                {language === "fr" ? "Développement d'Équipe" : "Team Development"}
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                {language === "fr" 
-                  ? "Soyez maxi dynamique avec nos formations"
-                  : "Be maximally dynamic with our training"
-                }
-              </p>
-            </div>
-
-            <div className="group bg-background rounded-lg p-6 shadow-sm hover:shadow-elegant transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/20 transition-colors">
-                <svg className="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2 text-secondary">
-                {language === "fr" ? "Conseil Financier" : "Financial Advisory"}
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                {language === "fr" 
-                  ? "Plans de financement et remboursement sur mesure"
-                  : "Custom financing and repayment plans"
-                }
-              </p>
-            </div>
-
-            <div className="group bg-background rounded-lg p-6 shadow-sm hover:shadow-elegant transition-all duration-300 text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 002 2h2a2 2 0 002-2V6m-8 0H8m8 0h2m-8 4h.01M12 14h.01M16 14h.01" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2 text-primary">
-                {language === "fr" ? "Maîtrise d'Ouvrage" : "Project Management"}
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                {language === "fr" 
-                  ? "Rapprochez-vous de nos experts projet"
-                  : "Connect with our project experts"
-                }
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+            {t.services.map((service, index) => (
+              <Card key={index} className="group overflow-hidden hover:shadow-premium transition-all duration-300 bg-gradient-to-br from-white to-muted/50">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <service.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-primary group-hover:text-primary-light transition-colors">
+                      {service.title}
+                    </h3>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {service.features.map((feature, featureIndex) => (
+                      <span key={featureIndex} className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium">
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    {language === "fr" ? "En savoir plus" : "Learn more"}
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+            ))}
           </div>
           
-          <div className="text-center mt-12">
-            <a 
-              href="/services" 
-              className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
-            >
-              {language === "fr" ? "Voir tous nos services" : "View all services"}
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+          <div className="text-center">
+            <Button size="lg" className="gradient-hero hover:shadow-glow text-lg px-8 py-6" asChild>
+              <Link to="/services" className="flex items-center space-x-2">
+                <span>{t.viewAllServices}</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
