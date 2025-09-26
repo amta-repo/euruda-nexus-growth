@@ -28,7 +28,7 @@ const Footer = ({ language }: FooterProps) => {
       address: "Cotonou, République du Bénin",
       phone: "+229 97 12 34 56",
       email: "contact@eurudaconseil.com",
-      copyright: "© 2024 EURUDA CONSEIL. Tous droits réservés.",
+      copyright: "© 2025 EURUDA CONSEIL. Tous droits réservés.",
       privacy: "Politique de Confidentialité",
       terms: "Conditions d'Utilisation",
       links: [
@@ -54,7 +54,7 @@ const Footer = ({ language }: FooterProps) => {
       address: "Cotonou, Republic of Benin",
       phone: "+229 97 12 34 56",
       email: "contact@eurudaconseil.com",
-      copyright: "© 2024 EURUDA CONSEIL. All rights reserved.",
+      copyright: "© 2025 EURUDA CONSEIL. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       links: [
